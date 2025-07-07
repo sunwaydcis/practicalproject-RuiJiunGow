@@ -57,7 +57,7 @@ object MainApp extends JFXApp3:
 
   val stringA = new StringProperty("sunway")  //publisher
   val stringB = new StringProperty("monash")  // subscriber
-  val stringC = new StringProperty("taylor")  // subcriber
+  val stringC = new StringProperty("taylor")  // subscriber
 
   stringA.onChange((a, b, c) => {
     println("a has changed value from " + b + " to " + c)
@@ -76,3 +76,8 @@ object MainApp extends JFXApp3:
 
   val add: (Int, Int) => Int = (a, b) => { a + b }
   println(add (1,2))
+
+  extension (value: Int)
+    def area: Double = 3.142 * value * value
+
+  println(56.area)
