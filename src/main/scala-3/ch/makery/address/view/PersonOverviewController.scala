@@ -32,3 +32,23 @@ class PersonOverviewController():
     // initialize columns's cell values
     firstNameColumn.cellValueFactory = {_.value.firstName}
     lastNameColumn.cellValueFactory  = {_.value.lastName}
+    firstNameLabel.text <== mytext.text
+
+  private def showPersonDetails(person: Option[Person]): Unit =
+    person match
+    case Some(person) =>
+      // Fill the labels with info from the person object.
+      firstNameLabel.text <== person.firstName
+      lastNameLabel.text <== person.lastName
+      streetLabel.text <== person.street
+      cityLabel.text <== person.city;
+      postalCodeLabel.text = person.postalCode.value.toString
+
+    case None =>
+      // Person is null, remove all the text.
+      firstNameLabel.text = ""
+      lastNameLabel.text = ""
+      streetLabel.text = ""
+      postalCodeLabel.text = ""
+      cityLabel.text = ""
+      birthdayLabel.text = ""
